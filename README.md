@@ -5,6 +5,8 @@
  Architecture Description [10/26]
 
  Protos and interface design complete [11/03]
+  -- Protos - 10/29
+  -- docker-compose.yml - 11/03
 
  First version logging [11/17]
 
@@ -13,7 +15,7 @@
  ## Emoji Chooser
 
  I am fixing the board size N x N to be 8 x 8.
- For P and T, I am going to use 4 pokemon and 4 trainers which i will be passing as static value in docker-compose file.
+ I am prompting the user to enter the number of pokemons and trainers and accordingly my ruamel program will pick these supplied data and generate the  docker-compose.yml file.
  I am giving a list of emojis to the user and they will choose through command line arguments.
 
  I am going to use:
@@ -29,4 +31,4 @@
  👀 Eyes
  👻 Ghost
 
- I am still learning how to create a docker-compose file to include multiple players as clients.
+
