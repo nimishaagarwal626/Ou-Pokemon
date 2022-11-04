@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package ou_pokemon;
+
+service OUPokemanGame
+{
+    rpc Captured(PokemonName) returns (PokemonName) {}
+    rpc Moves(stream Player) returns (stream Feedback){}
+    rpc Board(BoardConfig) returns (BoardConfig){}
+}
+
+message PokemonName {
+string pname = 1;
+}
+
+message Player {
+string player = 1;
+}
+
+message Feedback {
+int32 rowNum = 1;
+int32 columnNum = 2;
+string name = 3;
+}
+
+message BoardConfig {
+int32 row = 1;
+int32 column = 2;
+}
