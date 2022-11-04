@@ -31,4 +31,17 @@
  👀 Eyes
  👻 Ghost
 
+ ##  Interfaces
+ pokemon.proto is the proto buffer file that contains the rpc functions used to communicate with the server.s
+ It has 3 functions:
+ 1) Captured -- which takes input as pokemonName and returns the feedback saying "pokemonName" is captured.
+ 2) Moves -- which take input as stream of player and return stream Feedback that says where the move is i.e., the row and column specification.
+ 3) Board -- which takes BoardConfig as input and returns BoardConfig.
+
+ To generate the docker-compose.yml file, I run generatedockercompose.py file through DockerFile.
+ Commands used:
+  docker build .
+  docker run -it <imageid>
+
+
 

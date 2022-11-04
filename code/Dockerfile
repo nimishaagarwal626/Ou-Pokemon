@@ -1,6 +1,6 @@
 FROM ubuntu:rolling
 
-MAINTAINER harry@hogwarts.edu
+MAINTAINER nimisha.agarwal-1@ou.edu
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -31,9 +31,9 @@ COPY . /usr/src/app
 RUN pip install ruamel.yaml
 
 # Create the protobuf files
-# RUN protoc --python_out=. guessing_game.proto
+# RUN protoc --python_out=. pokemonou.proto
 # Code below works similarly
-RUN python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. pokemon.proto
+RUN python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. pokemonou.proto
 
 EXPOSE 22
 EXPOSE 80
