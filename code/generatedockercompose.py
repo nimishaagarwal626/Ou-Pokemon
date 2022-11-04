@@ -2,7 +2,7 @@ from __future__ import print_function
  
 from ruamel import yaml
 
- 
+VERSION = {'version':'3.7'}
 SERVICES = {'server': 'server'}
 numOfTrainers=int(input('Enter the number of Trainers:'))
 numOfPokemons=int(input('Enter the number of Pokemons:'))
@@ -28,5 +28,6 @@ if __name__ == '__main__':
         COMPOSITION['services'][name] = servicize(name, image)
     print(yaml.dump(COMPOSITION, default_flow_style=False, indent=4), end='')
     with open('docker-compose.yml', 'w+') as outfile:
+        yaml.dump(VERSION, outfile, default_flow_style=False, indent=4)
         yaml.dump(COMPOSITION, outfile, default_flow_style=False, indent=4)
     
