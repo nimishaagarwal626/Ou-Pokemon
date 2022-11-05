@@ -55,7 +55,7 @@ DockerFile contains all the configurations that is a prerequisite to run docker 
  To generate the docker-compose.yml file, I run generatedockercompose.py file through DockerFile which takes input P(no. of Pokemons) and T(No. of Trainers) and generate the corresponding no. of clients in docker-compose.yml file. 
  Commands used:
   docker build . --- generates an image id
-  docker run -it <imageid>
+  docker run -it -v $(pwd):/usr/src/app <imageid> --- using the volume concept of docker so that it can generate docker-compose.yml
  
 ------ Testing -------
 By using this command, python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. pokemonou.proto,
