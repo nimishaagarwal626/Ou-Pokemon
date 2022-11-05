@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package ou_pokemon;
+
+service PokemonTrainer
+{
+    rpc Capture(Feedback) returns (Feedback) {}
+    rpc Checkboard(BoardConfig) returns (MoveDecision){}
+    rpc Move(google.protobuf.Empty) returns (google.protobuf.Empty){}
+    rpc Pokedex(google.protobuf.Empty) returns (PokemonList) {}
+    rpc Path(google.protobuf.Empty) returns (MoveList) {}
+}
+
+message Feedback {
+    string feedback = 1;
+}
+
+message BoardConfig {
+    int32 row = 1;
+    int32 column = 2;
+}
+
+message MoveDecision {
+    string move = 1;
+}
+
+message PokemonList {
+    repeated PokemonName name = 1;
+}
+
+message PokemonName {
+    string name = 1;
+}
+
+message MoveList {
+    repeated MoveDecision movelist = 1;
+}

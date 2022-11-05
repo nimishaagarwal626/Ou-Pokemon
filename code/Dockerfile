@@ -34,6 +34,8 @@ RUN pip install ruamel.yaml
 # RUN protoc --python_out=. pokemonou.proto
 # Code below works similarly
 RUN python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. pokemonou.proto
+RUN python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. trainer.proto
+RUN python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. pokemon.proto
 
 EXPOSE 22
 EXPOSE 80
