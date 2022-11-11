@@ -41,12 +41,29 @@
 
  ##  Interfaces
  ------- Proto File --------
- pokemonou.proto is the proto buffer file that contains the rpc functions used to communicate with the server.
+ ** pokemonou.proto is the proto buffer file that contains the rpc functions used to communicate with the server.
  
  It has 3 functions:
- 1) Captured -- which takes input as pokemonName and returns the feedback saying "pokemonName" is captured.
- 2) Moves -- which take input as stream of player and return stream Feedback that says where the move is i.e., the row and column specification.
- 3) Board -- which takes BoardConfig as input and returns BoardConfig.
+ 1) Captured -- input : pokemonName and returns : feedback saying "pokemonName" is captured.
+ 2) Moves -- input : stream of player and return : stream Feedback that says where the move is i.e., the row and column specification.
+ 3) Board -- input : BoardConfig and returns : BoardConfig.
+ 
+ ** trainer.proto is the proto buffer that contains rpc functions related to all the activities that trainer is going to perform.
+ 
+ It has 5 functions:
+ 1) Capture - input: Feedback and returns : Feedback as Successful if a pokemon was in the space.
+ 2) Checkboard - input : BoardConfig and returns : MoveDecision in the form of up, down, right, left, etc.
+ 3) Move - this is used to just make the move
+ 4) Pokedex - returns the list of captured Pokemon
+ 5) Path - returns the list of full path traveled by this trainer.
+ 
+ ** pokemon.proto is the proto buffer that contains rpc functions related to all the activities that pokemon is going to   perform.
+ 
+ It has 3 functions:
+ 1) Checkboard -- input : BoardConfig and returns : MoveDecision in the form of position(up, down, etc.)
+ 2) Move -- this is used to just make the move
+ 3) Trainer -- input : TrainerName and returns : TrainerInfo that contains the trainer information for the pokemon and information about when and where it was captured.
+ 4) Path -- returns the list of full path traveled by this pokemon.
 
 ------ Dockerfile----------
 DockerFile contains all the configurations that is a prerequisite to run docker which installs all the dependencies that are needed and run the python file that contains code to generate the docker-compose.yml file dynamically.
