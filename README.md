@@ -74,6 +74,7 @@ Taking the trainer and pokemon emoji list through a text file and assigning rand
 To Note: For now initializing the array elements as none, later as the functionality develops, will update those. 
 
 
+![first_version_gif (1)](https://user-images.githubusercontent.com/114453254/202829395-1a5da473-aa91-4012-904a-ee58be2425c8.gif)
 
 
 
