@@ -1,31 +1,41 @@
 version: '3.7'
 services:
     client0:
-        build: .
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
         container_name: Trainer0
         hostname: Trainer0
         networks:
         -   default
     client1:
-        build: .
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
         container_name: Trainer1
         hostname: Trainer1
         networks:
         -   default
     client2:
-        build: .
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
         container_name: Pokemon0
         hostname: Pokemon0
         networks:
         -   default
     client3:
-        build: .
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
         container_name: Pokemon1
         hostname: Pokemon1
         networks:
         -   default
     server:
-        build: .
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
         container_name: server
         hostname: server
         networks:

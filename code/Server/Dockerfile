@@ -13,7 +13,6 @@ RUN apt-get update && \
     apt-get upgrade -y \
     && apt-get install -y python3-pip ipython3
 
-
 ENV GRPC_PYTHON_VERSION 1.15.0
 
 RUN apt-get install -y libprotoc-dev protobuf-compiler
@@ -43,4 +42,4 @@ EXPOSE 50050-50100
 ENV PYTHONUNBUFFERED=1
 
 # Run the node
-CMD ["python3", "generatedockercompose.py"]
+CMD ["python3", "server.py"]

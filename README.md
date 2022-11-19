@@ -43,27 +43,19 @@
  ------- Proto File --------
  ** pokemonou.proto is the proto buffer file that contains the rpc functions used to communicate with the server.
  
- It has 3 functions:
+ It has following functions:
  1) Captured -- input : pokemonName and returns : feedback saying "pokemonName" is captured.
  2) Moves -- input : stream of player and return : stream Feedback that says where the move is i.e., the row and column specification.
  3) Board -- input : BoardConfig and returns : BoardConfig.
- 
- ** trainer.proto is the proto buffer that contains rpc functions related to all the activities that trainer is going to perform.
- 
- It has 5 functions:
- 1) Capture - input: Feedback and returns : Feedback as Successful if a pokemon was in the space.
- 2) Checkboard - input : BoardConfig and returns : MoveDecision in the form of up, down, right, left, etc.
- 3) Move - this is used to just make the move
- 4) Pokedex - returns the list of captured Pokemon
- 5) Path - returns the list of full path traveled by this trainer.
- 
- ** pokemon.proto is the proto buffer that contains rpc functions related to all the activities that pokemon is going to   perform.
- 
- It has 3 functions:
- 1) Checkboard -- input : BoardConfig and returns : MoveDecision in the form of position(up, down, etc.)
- 2) Move -- this is used to just make the move
- 3) Trainer -- input : TrainerName and returns : TrainerInfo that contains the trainer information for the pokemon and information about when and where it was captured.
- 4) Path -- returns the list of full path traveled by this pokemon.
+ 4) Capture - input: Feedback and returns : Feedback as Successful if a pokemon was in the space.
+ 5) Checkboard - input : BoardConfig and returns : MoveDecision in the form of up, down, right, left, etc.
+ 6) TrainerMove - this is used to just make the move
+ 7) Pokedex - returns the list of captured Pokemon
+ 8) TrainerPath - returns the list of full path traveled by this trainer.
+ 9) Checkboard -- input : BoardConfig and returns : MoveDecision in the form of position(up, down, etc.)
+ 10) PokemonMove -- this is used to just make the move
+ 11) Trainer -- input : TrainerName and returns : TrainerInfo that contains the trainer information for the pokemon and information about when and where it was captured.
+ 12) PokemonPath -- returns the list of full path traveled by this pokemon.
 
 ------ Dockerfile----------
 DockerFile contains all the configurations that is a prerequisite to run docker which installs all the dependencies that are needed and run the python file that contains code to generate the docker-compose.yml file dynamically.
@@ -77,6 +69,11 @@ DockerFile contains all the configurations that is a prerequisite to run docker 
 ------ Testing -------
 By using this command, python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. pokemonou.proto,
 proto will generate 2 files, pokemonou_pb2_grpc.py and pokemonou_pb2.py which will contain the stubs that i will be implemnting on the pokemon and trainers which will send the input for Captured Moves and Board rpc functions and server will respond to them.
+
+------ First version logging ------
+Taking the trainer and pokemon emoji list through a text file and assigning random emojis to the pokemons and trainers. When user gives board size, number of pokemons and number of trainers in input it gets saved in the contents.txt file and we use that file in the server.py to create the board using numpy.empty() method. 
+
+To Note: For now initializing the array elements as none, later as the functionality develops, will update those. 
 
 
 

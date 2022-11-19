@@ -4,8 +4,17 @@ from ruamel import yaml
 
 VERSION = {'version':'3.7'}
 SERVICES = {'server': 'server'}
-numOfTrainers=int(input('Enter the number of Trainers:'))
-numOfPokemons=int(input('Enter the number of Pokemons:'))
+noOfTrainers = input('Enter the number of Trainers:')
+noOfPokemons = input('Enter the number of Pokemons:')
+boardsize=input("provide the size of board")
+numOfTrainers=int(noOfTrainers)
+numOfPokemons=int(noOfPokemons)
+
+f = open('contents.txt', 'w+')
+f.write(noOfTrainers + '\n')
+f.write(noOfPokemons + '\n')
+f.write(boardsize)
+
 for i in range(numOfTrainers):
     SERVICES["client"+str(i)] = "Trainer"+str(i)
  
@@ -16,13 +25,20 @@ COMPOSITION = {'services': {}}
  
 
 def servicize(name, image):
-    entry = {'build':".",
+    if(name == 'server'):
+        entry = {
+             'build': {'context': ".", 'dockerfile': 'Server/Dockerfile'},
              'hostname': image,
              'container_name': image,
              'networks': ['default']}
+    else:
+        entry = {
+                'build': {'context': ".", 'dockerfile': 'Server/Dockerfile'},
+                'hostname': image,
+                'container_name': image,
+                'networks': ['default']}
     return entry
  
-
 if __name__ == '__main__':
     for name, image in SERVICES.items():
         COMPOSITION['services'][name] = servicize(name, image)
