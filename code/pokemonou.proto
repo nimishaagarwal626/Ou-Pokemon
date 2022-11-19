@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
 package ou_pokemon;
 
 service OUPokemanGame
@@ -11,8 +13,7 @@ service OUPokemanGame
     rpc TrainerMove(google.protobuf.Empty) returns (google.protobuf.Empty){}
     rpc Trainer(TrainerName) returns (TrainerInfo){}
     rpc TrainerPath(google.protobuf.Empty) returns (MoveList) {}
-    rpc Capture(Feedback) returns (Feedback) {}
-    rpc Checkboard(BoardConfig) returns (MoveDecision){}
+    rpc Capture(Message) returns (Message) {}
     rpc PokemonMove(google.protobuf.Empty) returns (google.protobuf.Empty){}
     rpc Pokedex(google.protobuf.Empty) returns (PokemonList) {}
     rpc PokemonPath(google.protobuf.Empty) returns (MoveList) {}
@@ -56,14 +57,10 @@ message MoveList {
     repeated MoveDecision movelist = 1;
 }
 
-message Feedback {
+message Message {
     string feedback = 1;
 }
 
 message PokemonList {
     repeated PokemonName name = 1;
-}
-
-message PokemonName {
-    string name = 1;
 }

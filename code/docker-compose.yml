@@ -20,16 +20,56 @@ services:
         build:
             context: .
             dockerfile: Server/Dockerfile
-        container_name: Pokemon0
-        hostname: Pokemon0
+        container_name: Trainer2
+        hostname: Trainer2
         networks:
         -   default
     client3:
         build:
             context: .
             dockerfile: Server/Dockerfile
+        container_name: Trainer3
+        hostname: Trainer3
+        networks:
+        -   default
+    client4:
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
+        container_name: Pokemon0
+        hostname: Pokemon0
+        networks:
+        -   default
+    client5:
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
         container_name: Pokemon1
         hostname: Pokemon1
+        networks:
+        -   default
+    client6:
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
+        container_name: Pokemon2
+        hostname: Pokemon2
+        networks:
+        -   default
+    client7:
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
+        container_name: Pokemon3
+        hostname: Pokemon3
+        networks:
+        -   default
+    client8:
+        build:
+            context: .
+            dockerfile: Server/Dockerfile
+        container_name: Pokemon4
+        hostname: Pokemon4
         networks:
         -   default
     server:

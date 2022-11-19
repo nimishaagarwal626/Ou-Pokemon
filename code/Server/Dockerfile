@@ -29,11 +29,6 @@ COPY . /usr/src/app
 
 RUN pip install ruamel.yaml
 
-# Create the protobuf files
-# RUN protoc --python_out=. pokemonou.proto
-# Code below works similarly
-RUN python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. pokemonou.proto
-
 EXPOSE 22
 EXPOSE 80
 EXPOSE 50050-50100
