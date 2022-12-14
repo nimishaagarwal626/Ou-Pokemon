@@ -11,42 +11,25 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fpokemonou.proto\x12\nou_pokemon\x1a\x1bgoogle/protobuf/empty.proto\"\x07\n\x05\x45mpty\"\x1c\n\x0bPokemonName\x12\r\n\x05pname\x18\x01 \x01(\t\"\x1b\n\x07PokMove\x12\x10\n\x08hostname\x18\x01 \x01(\t\"\x1d\n\tTrainMove\x12\x10\n\x08hostname\x18\x01 \x01(\t\"\x18\n\x06Player\x12\x0e\n\x06player\x18\x01 \x01(\t\"-\n\x08\x46\x65\x65\x64\x62\x61\x63k\x12\x0e\n\x06rowNum\x18\x01 \x01(\x05\x12\x11\n\tcolumnNum\x18\x02 \x01(\x05\"c\n\x0b\x42oardConfig\x12\x12\n\npokemonRow\x18\x01 \x03(\x05\x12\x15\n\rpokemonColumn\x18\x02 \x03(\x05\x12\x12\n\ntrainerRow\x18\x03 \x03(\x05\x12\x15\n\rtrainerColumn\x18\x04 \x03(\x05\"\x1c\n\x0cMoveDecision\x12\x0c\n\x04move\x18\x01 \x01(\t\"\x1c\n\x0bTrainerName\x12\r\n\x05tname\x18\x01 \x01(\t\"H\n\x0bTrainerInfo\x12\r\n\x05tname\x18\x01 \x01(\t\x12\r\n\x05pname\x18\x02 \x01(\t\x12\x0b\n\x03row\x18\x03 \x01(\x05\x12\x0e\n\x06\x63olumn\x18\x04 \x01(\x05\"6\n\x08MoveList\x12*\n\x08movelist\x18\x01 \x03(\x0b\x32\x18.ou_pokemon.MoveDecision\"\x18\n\x07Message\x12\r\n\x05\x63ount\x18\x01 \x01(\x05\"4\n\x0bPokemonList\x12%\n\x04name\x18\x01 \x03(\x0b\x32\x17.ou_pokemon.PokemonName2\xef\x04\n\rOUPokemanGame\x12\x33\n\x05Moves\x12\x12.ou_pokemon.Player\x1a\x14.ou_pokemon.Feedback\"\x00\x12\x39\n\x05\x42oard\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12@\n\nCheckboard\x12\x16.google.protobuf.Empty\x1a\x18.ou_pokemon.MoveDecision\"\x00\x12;\n\x0bTrainerMove\x12\x15.ou_pokemon.TrainMove\x1a\x13.ou_pokemon.Message\"\x00\x12=\n\x07Trainer\x12\x17.ou_pokemon.TrainerName\x1a\x17.ou_pokemon.TrainerInfo\"\x00\x12=\n\x0bTrainerPath\x12\x16.google.protobuf.Empty\x1a\x14.ou_pokemon.MoveList\"\x00\x12\x39\n\x08\x43\x61ptured\x12\x16.google.protobuf.Empty\x1a\x13.ou_pokemon.Message\"\x00\x12\x39\n\x0bPokemonMove\x12\x13.ou_pokemon.PokMove\x1a\x13.ou_pokemon.Message\"\x00\x12<\n\x07Pokedex\x12\x16.google.protobuf.Empty\x1a\x17.ou_pokemon.PokemonList\"\x00\x12=\n\x0bPokemonPath\x12\x16.google.protobuf.Empty\x1a\x14.ou_pokemon.MoveList\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fpokemonou.proto\x12\nou_pokemon\"\x18\n\x08Hostname\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1d\n\x0cInitialMoves\x12\r\n\x05\x65xist\x18\x01 \x01(\t\"\x1b\n\x07PokMove\x12\x10\n\x08hostname\x18\x01 \x01(\t\"\x1d\n\tTrainMove\x12\x10\n\x08hostname\x18\x01 \x01(\t\"\x18\n\x07Message\x12\r\n\x05\x63ount\x18\x01 \x01(\x05\x32\xc2\x01\n\rOUPokemanGame\x12\x39\n\x05\x42oard\x12\x14.ou_pokemon.Hostname\x1a\x18.ou_pokemon.InitialMoves\"\x00\x12;\n\x0bTrainerMove\x12\x15.ou_pokemon.TrainMove\x1a\x13.ou_pokemon.Message\"\x00\x12\x39\n\x0bPokemonMove\x12\x13.ou_pokemon.PokMove\x1a\x13.ou_pokemon.Message\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pokemonou_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _EMPTY._serialized_start=60
-  _EMPTY._serialized_end=67
-  _POKEMONNAME._serialized_start=69
-  _POKEMONNAME._serialized_end=97
-  _POKMOVE._serialized_start=99
-  _POKMOVE._serialized_end=126
-  _TRAINMOVE._serialized_start=128
-  _TRAINMOVE._serialized_end=157
-  _PLAYER._serialized_start=159
-  _PLAYER._serialized_end=183
-  _FEEDBACK._serialized_start=185
-  _FEEDBACK._serialized_end=230
-  _BOARDCONFIG._serialized_start=232
-  _BOARDCONFIG._serialized_end=331
-  _MOVEDECISION._serialized_start=333
-  _MOVEDECISION._serialized_end=361
-  _TRAINERNAME._serialized_start=363
-  _TRAINERNAME._serialized_end=391
-  _TRAINERINFO._serialized_start=393
-  _TRAINERINFO._serialized_end=465
-  _MOVELIST._serialized_start=467
-  _MOVELIST._serialized_end=521
-  _MESSAGE._serialized_start=523
-  _MESSAGE._serialized_end=547
-  _POKEMONLIST._serialized_start=549
-  _POKEMONLIST._serialized_end=601
-  _OUPOKEMANGAME._serialized_start=604
-  _OUPOKEMANGAME._serialized_end=1227
+  _HOSTNAME._serialized_start=31
+  _HOSTNAME._serialized_end=55
+  _INITIALMOVES._serialized_start=57
+  _INITIALMOVES._serialized_end=86
+  _POKMOVE._serialized_start=88
+  _POKMOVE._serialized_end=115
+  _TRAINMOVE._serialized_start=117
+  _TRAINMOVE._serialized_end=146
+  _MESSAGE._serialized_start=148
+  _MESSAGE._serialized_end=172
+  _OUPOKEMANGAME._serialized_start=175
+  _OUPOKEMANGAME._serialized_end=369
 # @@protoc_insertion_point(module_scope)

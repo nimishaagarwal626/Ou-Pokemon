@@ -1,18 +1,12 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 package ou_pokemon;
 
 service OUPokemanGame
 {
     rpc Board(Hostname) returns (InitialMoves){}
     rpc TrainerMove(TrainMove) returns (Message){}
-    rpc TrainerPath(google.protobuf.Empty) returns (MoveList) {}
-    rpc Captured(google.protobuf.Empty) returns (Message) {}
     rpc PokemonMove(PokMove) returns (Message){}
-    rpc Pokedex(google.protobuf.Empty) returns (PokemonList) {}
-    rpc PokemonPath(google.protobuf.Empty) returns (MoveList) {}
 }
 
 message Hostname {
@@ -23,14 +17,6 @@ message InitialMoves {
     string exist = 1;
 }
 
-message Empty {
-
-}
-
-message PokemonName {
-string pname = 1;
-}
-
 message PokMove {
     string hostname = 1;
 }
@@ -39,45 +25,6 @@ message TrainMove {
     string hostname = 1;
 }
 
-message Player {
-    string player = 1;
-}
-
-message Feedback {
-    int32 rowNum = 1;
-    int32 columnNum = 2;
-}
-
-message BoardConfig {
-    repeated int32 pokemonRow = 1;
-    repeated int32 pokemonColumn = 2;
-    repeated int32 trainerRow = 3;
-    repeated int32 trainerColumn = 4;
-}
-
-message MoveDecision {
-    string move = 1;
-}
-
-message TrainerName {
-    string tname = 1;
-}
-
-message TrainerInfo {
-    string tname = 1;
-    string pname =2;
-    int32 row = 3;
-    int32 column = 4;
-}
-
-message MoveList {
-    repeated MoveDecision movelist = 1;
-}
-
 message Message {
     int32 count = 1;
-}
-
-message PokemonList {
-    repeated PokemonName name = 1;
 }
