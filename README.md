@@ -44,17 +44,9 @@
  ** pokemonou.proto is the proto buffer file that contains the rpc functions used to communicate with the server.
  
  It has following functions:
- 1) Captured -- input : pokemonName and returns : feedback saying "pokemonName" is captured.
- 2) Moves -- input : stream of player and return : stream Feedback that says where the move is i.e., the row and column specification.
- 3) Board -- input : BoardConfig and returns : BoardConfig.
- 4) Capture - input: Feedback and returns : Feedback as Successful if a pokemon was in the space.
- 5) Checkboard - input : BoardConfig and returns : MoveDecision in the form of up, down, right, left, etc.
- 6) TrainerMove - this is used to just make the move
- 7) Pokedex - returns the list of captured Pokemon
- 8) TrainerPath - returns the list of full path traveled by this trainer.
- 9) PokemonMove -- this is used to just make the move
- 10) Trainer -- input : TrainerName and returns : TrainerInfo that contains the trainer information for the pokemon and information about when and where it was captured.
- 11) PokemonPath -- returns the list of full path traveled by this pokemon.
+ 1) Board -- input : Hostname and returns : InitialMoves. - used to check if pokemon exists or not, if exists it returns True else empty string
+ 2) TrainerMove -- input : TrainMove and returns : Message. this is used to just make the move
+ 3) PokemonMove -- this is used to just make the move
 ------ Dockerfile----------
 DockerFile contains all the configurations that is a prerequisite to run docker which installs all the dependencies that are needed and run the python file that contains code to generate the docker-compose.yml file dynamically.
  
