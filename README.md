@@ -107,5 +107,12 @@ To handle concurrency i.e. if trainer is making a move it should complete the mo
 To handle the execution that all channels should be closed after all the pokemons are captured, I am making use of 2 count variables, one for pokemon and another one for trainer, Trainer increaments the count whenever a pokemon is captured and Pokemon increaments the count whenever it is captured and still coming for the execution it increments the count.
 And i made use of recursive call of clients based on if my count is equal to the number of pokemons, it closes the channel, otherwise call the run(hostname){this method is where the client is} method again.
 
+DS Problems faced:::
+Issue#1 - Multithreading concurrency issue => Resolution - Locks
+Issue#2 - Scalability => Resolution - generating docker-compose.yml dynamically to accomadate any number of trainers, pokemon as well as the board size
+Issue#3 - Message Passing => Resolution - Use of RPCs iinstead of Send and Receive
+
+Gif for code Run::
+
 ![Screen_Recording_2022-12-14_at_2_24_51_AM_AdobeExpress (2)](https://user-images.githubusercontent.com/114453254/207578064-1f82b6fa-da17-44df-8d00-7d26e5d7eb13.gif)
 
