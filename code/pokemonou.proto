@@ -6,36 +6,53 @@ package ou_pokemon;
 
 service OUPokemanGame
 {
-    rpc Captured(PokemonName) returns (PokemonName) {}
-    rpc Moves(stream Player) returns (stream Feedback){}
-    rpc Board(BoardConfig) returns (BoardConfig){}
-    rpc Checkboard(BoardConfig) returns (MoveDecision) {}
-    rpc TrainerMove(google.protobuf.Empty) returns (google.protobuf.Empty){}
-    rpc Trainer(TrainerName) returns (TrainerInfo){}
+    rpc Board(Hostname) returns (InitialMoves){}
+    rpc TrainerMove(TrainMove) returns (Message){}
     rpc TrainerPath(google.protobuf.Empty) returns (MoveList) {}
-    rpc Capture(Message) returns (Message) {}
-    rpc PokemonMove(google.protobuf.Empty) returns (google.protobuf.Empty){}
+    rpc Captured(google.protobuf.Empty) returns (Message) {}
+    rpc PokemonMove(PokMove) returns (Message){}
     rpc Pokedex(google.protobuf.Empty) returns (PokemonList) {}
     rpc PokemonPath(google.protobuf.Empty) returns (MoveList) {}
+}
+
+message Hostname {
+    string name = 1;
+}
+
+message InitialMoves {
+    string exist = 1;
+}
+
+message Empty {
+
 }
 
 message PokemonName {
 string pname = 1;
 }
 
+message PokMove {
+    string hostname = 1;
+}
+
+message TrainMove {
+    string hostname = 1;
+}
+
 message Player {
-string player = 1;
+    string player = 1;
 }
 
 message Feedback {
-int32 rowNum = 1;
-int32 columnNum = 2;
-string name = 3;
+    int32 rowNum = 1;
+    int32 columnNum = 2;
 }
 
 message BoardConfig {
-int32 row = 1;
-int32 column = 2;
+    repeated int32 pokemonRow = 1;
+    repeated int32 pokemonColumn = 2;
+    repeated int32 trainerRow = 3;
+    repeated int32 trainerColumn = 4;
 }
 
 message MoveDecision {
@@ -58,7 +75,7 @@ message MoveList {
 }
 
 message Message {
-    string feedback = 1;
+    int32 count = 1;
 }
 
 message PokemonList {
