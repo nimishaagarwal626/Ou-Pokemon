@@ -15,30 +15,25 @@ class OUPokemanGameStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Captured = channel.unary_unary(
-                '/ou_pokemon.OUPokemanGame/Captured',
-                request_serializer=pokemonou__pb2.PokemonName.SerializeToString,
-                response_deserializer=pokemonou__pb2.PokemonName.FromString,
-                )
-        self.Moves = channel.stream_stream(
+        self.Moves = channel.unary_unary(
                 '/ou_pokemon.OUPokemanGame/Moves',
                 request_serializer=pokemonou__pb2.Player.SerializeToString,
                 response_deserializer=pokemonou__pb2.Feedback.FromString,
                 )
         self.Board = channel.unary_unary(
                 '/ou_pokemon.OUPokemanGame/Board',
-                request_serializer=pokemonou__pb2.BoardConfig.SerializeToString,
-                response_deserializer=pokemonou__pb2.BoardConfig.FromString,
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.Checkboard = channel.unary_unary(
                 '/ou_pokemon.OUPokemanGame/Checkboard',
-                request_serializer=pokemonou__pb2.BoardConfig.SerializeToString,
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=pokemonou__pb2.MoveDecision.FromString,
                 )
         self.TrainerMove = channel.unary_unary(
                 '/ou_pokemon.OUPokemanGame/TrainerMove',
-                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                request_serializer=pokemonou__pb2.TrainMove.SerializeToString,
+                response_deserializer=pokemonou__pb2.Message.FromString,
                 )
         self.Trainer = channel.unary_unary(
                 '/ou_pokemon.OUPokemanGame/Trainer',
@@ -50,15 +45,15 @@ class OUPokemanGameStub(object):
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=pokemonou__pb2.MoveList.FromString,
                 )
-        self.Capture = channel.unary_unary(
-                '/ou_pokemon.OUPokemanGame/Capture',
-                request_serializer=pokemonou__pb2.Message.SerializeToString,
+        self.Captured = channel.unary_unary(
+                '/ou_pokemon.OUPokemanGame/Captured',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=pokemonou__pb2.Message.FromString,
                 )
         self.PokemonMove = channel.unary_unary(
                 '/ou_pokemon.OUPokemanGame/PokemonMove',
-                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                request_serializer=pokemonou__pb2.PokMove.SerializeToString,
+                response_deserializer=pokemonou__pb2.Message.FromString,
                 )
         self.Pokedex = channel.unary_unary(
                 '/ou_pokemon.OUPokemanGame/Pokedex',
@@ -75,13 +70,7 @@ class OUPokemanGameStub(object):
 class OUPokemanGameServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Captured(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def Moves(self, request_iterator, context):
+    def Moves(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -117,7 +106,7 @@ class OUPokemanGameServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Capture(self, request, context):
+    def Captured(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -144,30 +133,25 @@ class OUPokemanGameServicer(object):
 
 def add_OUPokemanGameServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Captured': grpc.unary_unary_rpc_method_handler(
-                    servicer.Captured,
-                    request_deserializer=pokemonou__pb2.PokemonName.FromString,
-                    response_serializer=pokemonou__pb2.PokemonName.SerializeToString,
-            ),
-            'Moves': grpc.stream_stream_rpc_method_handler(
+            'Moves': grpc.unary_unary_rpc_method_handler(
                     servicer.Moves,
                     request_deserializer=pokemonou__pb2.Player.FromString,
                     response_serializer=pokemonou__pb2.Feedback.SerializeToString,
             ),
             'Board': grpc.unary_unary_rpc_method_handler(
                     servicer.Board,
-                    request_deserializer=pokemonou__pb2.BoardConfig.FromString,
-                    response_serializer=pokemonou__pb2.BoardConfig.SerializeToString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'Checkboard': grpc.unary_unary_rpc_method_handler(
                     servicer.Checkboard,
-                    request_deserializer=pokemonou__pb2.BoardConfig.FromString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=pokemonou__pb2.MoveDecision.SerializeToString,
             ),
             'TrainerMove': grpc.unary_unary_rpc_method_handler(
                     servicer.TrainerMove,
-                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    request_deserializer=pokemonou__pb2.TrainMove.FromString,
+                    response_serializer=pokemonou__pb2.Message.SerializeToString,
             ),
             'Trainer': grpc.unary_unary_rpc_method_handler(
                     servicer.Trainer,
@@ -179,15 +163,15 @@ def add_OUPokemanGameServicer_to_server(servicer, server):
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=pokemonou__pb2.MoveList.SerializeToString,
             ),
-            'Capture': grpc.unary_unary_rpc_method_handler(
-                    servicer.Capture,
-                    request_deserializer=pokemonou__pb2.Message.FromString,
+            'Captured': grpc.unary_unary_rpc_method_handler(
+                    servicer.Captured,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=pokemonou__pb2.Message.SerializeToString,
             ),
             'PokemonMove': grpc.unary_unary_rpc_method_handler(
                     servicer.PokemonMove,
-                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    request_deserializer=pokemonou__pb2.PokMove.FromString,
+                    response_serializer=pokemonou__pb2.Message.SerializeToString,
             ),
             'Pokedex': grpc.unary_unary_rpc_method_handler(
                     servicer.Pokedex,
@@ -210,7 +194,7 @@ class OUPokemanGame(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Captured(request,
+    def Moves(request,
             target,
             options=(),
             channel_credentials=None,
@@ -220,24 +204,7 @@ class OUPokemanGame(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/Captured',
-            pokemonou__pb2.PokemonName.SerializeToString,
-            pokemonou__pb2.PokemonName.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def Moves(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/ou_pokemon.OUPokemanGame/Moves',
+        return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/Moves',
             pokemonou__pb2.Player.SerializeToString,
             pokemonou__pb2.Feedback.FromString,
             options, channel_credentials,
@@ -255,8 +222,8 @@ class OUPokemanGame(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/Board',
-            pokemonou__pb2.BoardConfig.SerializeToString,
-            pokemonou__pb2.BoardConfig.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -272,7 +239,7 @@ class OUPokemanGame(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/Checkboard',
-            pokemonou__pb2.BoardConfig.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             pokemonou__pb2.MoveDecision.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -289,8 +256,8 @@ class OUPokemanGame(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/TrainerMove',
-            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            pokemonou__pb2.TrainMove.SerializeToString,
+            pokemonou__pb2.Message.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -329,7 +296,7 @@ class OUPokemanGame(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Capture(request,
+    def Captured(request,
             target,
             options=(),
             channel_credentials=None,
@@ -339,8 +306,8 @@ class OUPokemanGame(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/Capture',
-            pokemonou__pb2.Message.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/Captured',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             pokemonou__pb2.Message.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -357,8 +324,8 @@ class OUPokemanGame(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/ou_pokemon.OUPokemanGame/PokemonMove',
-            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            pokemonou__pb2.PokMove.SerializeToString,
+            pokemonou__pb2.Message.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

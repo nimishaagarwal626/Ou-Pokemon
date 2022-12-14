@@ -25,18 +25,11 @@ COMPOSITION = {'services': {}}
  
 
 def servicize(name, image):
-    if(name == 'server'):
-        entry = {
-             'build': {'context': ".", 'dockerfile': 'Server/Dockerfile'},
-             'hostname': image,
-             'container_name': image,
-             'networks': ['default']}
-    else:
-        entry = {
-                'build': {'context': ".", 'dockerfile': 'Server/Dockerfile'},
-                'hostname': image,
-                'container_name': image,
-                'networks': ['default']}
+    entry = {
+            'build': '.',
+            'hostname': image,
+            'container_name': image,
+            'networks': ['default']}
     return entry
  
 if __name__ == '__main__':

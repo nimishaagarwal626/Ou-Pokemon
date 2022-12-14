@@ -22,6 +22,7 @@ RUN python3 -m pip install --upgrade pip && python3 -m pip install click grpcio 
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+VOLUME ["/usr/src/app"]
 
 # Build python stuff
 COPY requirements.txt /usr/src/app/
@@ -29,6 +30,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /usr/src/app
 
 RUN pip install ruamel.yaml
+RUN pip install emoji
 
 # Create the protobuf files
 # RUN protoc --python_out=. pokemonou.proto
@@ -43,4 +45,4 @@ EXPOSE 50050-50100
 ENV PYTHONUNBUFFERED=1
 
 # Run the node
-CMD ["python3", "generatedockercompose.py"]
+CMD ["python3", "node1.py"]
