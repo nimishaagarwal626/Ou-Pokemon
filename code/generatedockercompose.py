@@ -4,12 +4,15 @@ from ruamel import yaml
 
 VERSION = {'version':'3.7'}
 SERVICES = {'server': 'server'}
+
+#Taking user inputs
 noOfTrainers = input('Enter the number of Trainers:')
 noOfPokemons = input('Enter the number of Pokemons:')
 boardsize=input("Enter the size of board:")
 numOfTrainers=int(noOfTrainers)
 numOfPokemons=int(noOfPokemons)
 
+#Writing the inputs into contents.txt file to access it in node.py
 f = open('contents.txt', 'w+')
 f.write(noOfTrainers + '\n')
 f.write(noOfPokemons + '\n')
@@ -23,7 +26,7 @@ for j in range(numOfPokemons):
  
 COMPOSITION = {'services': {}}
  
-
+#Adding these fields to every container
 def servicize(name, image):
     entry = {
             'build': '.',
@@ -36,6 +39,8 @@ if __name__ == '__main__':
     for name, image in SERVICES.items():
         COMPOSITION['services'][name] = servicize(name, image)
     print(yaml.dump(COMPOSITION, default_flow_style=False, indent=4), end='')
+    
+    #generating docker-compose.yml
     with open('docker-compose.yml', 'w+') as outfile:
         yaml.dump(VERSION, outfile, default_flow_style=False, indent=4)
         yaml.dump(COMPOSITION, outfile, default_flow_style=False, indent=4)

@@ -30,7 +30,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /usr/src/app
 
 RUN pip install ruamel.yaml
-RUN pip install emoji
 
 # Create the protobuf files
 # RUN protoc --python_out=. pokemonou.proto
