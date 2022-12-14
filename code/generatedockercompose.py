@@ -6,7 +6,7 @@ VERSION = {'version':'3.7'}
 SERVICES = {'server': 'server'}
 noOfTrainers = input('Enter the number of Trainers:')
 noOfPokemons = input('Enter the number of Pokemons:')
-boardsize=input("provide the size of board")
+boardsize=input("Enter the size of board:")
 numOfTrainers=int(noOfTrainers)
 numOfPokemons=int(noOfPokemons)
 
